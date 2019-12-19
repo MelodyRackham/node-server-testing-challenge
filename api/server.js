@@ -6,11 +6,11 @@ const server = express();
 
 server.use(express.json());
 
-// ✅
+
 server.get('/', (req, res) => {
   res.status(200).json({ api: 'Server is up and running...', environment: process.env.DB_ENV });
 });
-// 😬
+
 server.get('/cars', (req, res) => {
   Cars.getAll()
     .then(cars => {
@@ -20,7 +20,7 @@ server.get('/cars', (req, res) => {
       res.status(500).json({ error: 'Cannot get cars.. try again.. ' });
     });
 });
-// 😬
+
 server.get('/:id/cars', (req, res) => {
   const { id } = req.params;
 
@@ -36,7 +36,7 @@ server.get('/:id/cars', (req, res) => {
       res.status(500).json({ message: 'Failed' });
     });
 });
-// 😬
+
 server.post('/cars', (req, res) => {
   const addCar = req.body;
   Cars.insert(addCar)
