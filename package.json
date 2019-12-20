@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon index.js",
-    "test": "cross-ENV DB_ENV=testing jest --watch --verbose",
+    "test": "cross-ENV DB_ENV=testing jest --watch",
     "start": "node index.js"
   },
   "jest": {
@@ -30,7 +30,9 @@
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jest": "^24.9.0",
     "knex": "^0.20.4",
-    "sqlite3": "^4.1.1"
+    "sqlite3": "^4.1.1",
+    "supertest": "^4.0.2"
   }
 }

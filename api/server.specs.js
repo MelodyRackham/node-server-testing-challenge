@@ -4,9 +4,9 @@ const server = require('./server.js');
 
 const db = require('../data/db-config');
 
-describe('server', function() {
-  describe('GET', function() {
-    it('should return 200 OK status', function() {
+describe('GET', function() {
+  describe('POST', function() {
+    it('should return 401 OK status', function() {
       return request(server)
         .get('/')
         .then(res => {

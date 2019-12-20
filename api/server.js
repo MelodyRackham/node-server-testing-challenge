@@ -6,7 +6,6 @@ const server = express();
 
 server.use(express.json());
 
-
 server.get('/', (req, res) => {
   res.status(200).json({ api: 'Server is up and running...', environment: process.env.DB_ENV });
 });
@@ -48,7 +47,7 @@ server.post('/cars', (req, res) => {
       res.status(500).json({ error: `error` });
     });
 });
-// 😬
+
 server.delete('/:id/car', (req, res) => {
   const { id } = req.params;
 
