@@ -1,6 +1,6 @@
 const db = require('../data/db-config.js');
 
-const { insert, remove } = require('./carsModel.js');
+const crud = require('./carsModel.js');
 
 describe('Cars model', function() {
   describe('insert()', () => {
@@ -12,7 +12,7 @@ describe('Cars model', function() {
       const cars = await db('cars');
       expect(cars).toHaveLength(0);
       console.log(cars);
-      await insert({
+      await crud.insert({
         Year: '2008',
         Make: 'Chevy',
         Model: 'Impala',
@@ -24,7 +24,7 @@ describe('Cars model', function() {
       const cars = await db('cars');
       expect(cars).toHaveLength(0);
       console.log(cars);
-      await insert({
+      await crud.insert({
         Year: '2008',
         Make: 'Chevy',
         Model: 'Impala',
@@ -37,7 +37,7 @@ describe('Cars model', function() {
 
 describe('remove()', () => {
   it('remove', async () => {
-    await remove(1);
+    await crud.remove(1);
     const car = await db('cars');
     expect(car).toHaveLength(0);
   });
@@ -47,7 +47,7 @@ describe('remove()', () => {
       Make: 'Chevy',
       Model: 'Impala',
     });
-    await remove(0);
+    await crud.remove(0);
     const cars = await db('cars');
     expect(cars).toHaveLength(1);
   });
